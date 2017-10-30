@@ -1,0 +1,21 @@
+version: '2'
+
+services:
+  rps-backend:
+    image: husamay/rps-backend:latest
+    ports:
+      - "4000:8080"
+    networks:
+      - new
+
+  rps-frontend:
+    depends_on:
+      - rps-backend
+    image: husamay/rps-frontend:latest
+    ports:
+      - "80:80"
+    networks:
+      - new
+
+networks:
+  new:
