@@ -43,13 +43,13 @@ pipeline {
 
       }
     }
+  }
 
 
-    post {
-      failure {
-        sh("sudo docker run -d --rm --name frontend-container -p 4000:8080 husamay/rps-frontend:stable")
-        sh("sudo docker run -d --rm --name frontend-container -p 4000:8080 husamay/rps-frontend:stable")
-      }
+  post {
+    failure {
+      sh("sudo docker run -d --rm --name frontend-container -p 4000:8080 husamay/rps-frontend:stable")
+      sh("sudo docker run -d --rm --name frontend-container -p 4000:8080 husamay/rps-frontend:stable")
     }
   }
 }
