@@ -55,7 +55,7 @@ pipeline {
   post {
     failure {
       sh("sudo docker run -d --rm --name frontend-container -p 80:80 husamay/rps-frontend:stable")
-      sh("sudo docker run -d --rm --name backend-container -p 4000:8080 husamay/rps-frontend:stable")
+      sh("sudo docker run -d --rm --name backend-container -p 4000:8080 husamay/rps-backend:stable")
     }
   }
 }
