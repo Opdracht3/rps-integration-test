@@ -1,7 +1,7 @@
 pipeline {
   triggers {
-    upstream(upstreamProjects: "rps-backend", threshold: hudson.model.Result.SUCCESS)
-    upstream(upstreamProjects: "rps-frontend", threshold: hudson.model.Result.SUCCESS)
+    upstream(upstreamProjects: "rps-backend", threshold: hudson.model.Result.SUCCESS,
+              upstreamProjects: "rps-frontend", threshold: hudson.model.Result.SUCCESS)
   }
   agent any
 
