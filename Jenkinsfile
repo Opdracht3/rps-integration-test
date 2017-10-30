@@ -21,4 +21,5 @@ pipeline {
         sh("echo integration test")
       }
     }
+  }
 }
