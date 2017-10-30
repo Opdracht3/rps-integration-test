@@ -5,7 +5,10 @@ pipeline {
 
     stage('Clean up') {
       steps {
+        sh 'sudo docker stop frontend-container || true'
         sh 'sudo docker rm frontend-container || true'
+
+        sh 'sudo docker stop backend-container || true'
         sh 'sudo docker rm backend-container || true'
       }
     }
@@ -25,7 +28,7 @@ pipeline {
     stage('start frontend') {
       steps {
         echo 'start frontend..'
-        sh("sudo docker run -d --rm --name frontend-container -p 4000:8080 husamay/rps-frontend:latest")
+        sh("sudo docker run -d --rm --name frontend-container -p 80:80 husamay/rps-frontend:latest")
         withCredentials([usernamePassword(credentialsId: 'docker-repo', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
           sh("sudo docker login -u=$USERNAME -p=$PASSWORD")
         }
